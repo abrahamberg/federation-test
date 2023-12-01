@@ -33,6 +33,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: user/app:latest
+          tags: githuboidc.azurecr.io/federation-test:latest
 
           
