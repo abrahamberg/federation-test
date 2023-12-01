@@ -25,7 +25,15 @@ jobs:
           az account show # Test login
           az group list # Test login 
           
-
+      - name: 'Docker login to azure'
+        run: |
+          az acr login --name githuboidc.azurecr.io
+      
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          push: true
+          tags: githuboidc.azurecr.io/federation-test:latest
 
       - name: get secret from keyvalt
         run: |
